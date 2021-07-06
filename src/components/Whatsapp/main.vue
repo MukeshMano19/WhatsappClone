@@ -5,8 +5,12 @@
     <!-- Left Stuff -->
     <div class="left-part">
       <div class="profile"></div>
+
       <div class="search"></div>
-      <div class="contacts"></div>
+
+      <div class="contacts">
+        <contact-list></contact-list>
+      </div>
     </div>
 
     <!-- Right Stuff -->
@@ -20,7 +24,13 @@
 
 // Javascript
 <script>
-export default {};
+import ContactList from './contacts.vue'
+
+export default {
+  components: {
+    ContactList
+  }
+};
 </script>
 
 // style
@@ -54,8 +64,10 @@ export default {};
 }
 
 .whatsapp .left-part .contacts {
-   height: 600px;
-   background: rgb(24, 126, 121); 
+   min-height: 600px;
+   max-height: 600px;
+   overflow: auto;
+   /* background: rgb(24, 126, 121);  */
 }
 
 /* Right Part */
