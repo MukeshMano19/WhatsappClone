@@ -16,7 +16,9 @@
     <!-- Right Stuff -->
     <div class="right-part">
       <div class="recepient-header"></div>
-      <div class="recepient-messages"></div>
+      <div class="recepient-messages">
+        <conversations></conversations>
+      </div>
       <div class="send-bar"></div>
     </div>
   </div>
@@ -24,12 +26,13 @@
 
 // Javascript
 <script>
-import ContactList from './contacts.vue'
-
+import ContactList from "./contacts.vue";
+import Conversations from "./Conversations.vue";
 export default {
   components: {
-    ContactList
-  }
+    ContactList,
+    Conversations,
+  },
 };
 </script>
 
@@ -54,20 +57,20 @@ export default {
 }
 
 .whatsapp .left-part .profile {
-   height: 60px;
-   background: sandybrown; 
+  height: 60px;
+  background: sandybrown;
 }
 
 .whatsapp .left-part .search {
-   height: 50px;
-   background: rgb(71, 67, 64); 
+  height: 50px;
+  background: rgb(71, 67, 64);
 }
 
 .whatsapp .left-part .contacts {
-   min-height: 600px;
-   max-height: 600px;
-   overflow: auto;
-   /* background: rgb(24, 126, 121);  */
+  min-height: 600px;
+  max-height: 600px;
+  overflow: auto;
+  /* background: rgb(24, 126, 121);  */
 }
 
 /* Right Part */
@@ -77,17 +80,17 @@ export default {
 }
 
 .whatsapp .right-part .recepient-header {
-   height: 60px;
-   background: rgb(13, 187, 143); 
+  height: 60px;
+  background: rgb(13, 187, 143);
 }
 
 .whatsapp .right-part .recepient-messages {
-   height: 600px;
-   background: rgb(233, 230, 228); 
+  height: 600px;
+  background: rgb(233, 230, 228);
 }
 
 .whatsapp .right-part .send-bar {
-   height: 50px;
-   background: rgb(16, 34, 33); 
+  height: 50px;
+  background: rgb(16, 34, 33);
 }
 </style>

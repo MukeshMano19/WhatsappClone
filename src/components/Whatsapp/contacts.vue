@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="contact" v-for="contact in contacts" :key="contact">
+    <div
+      class="contact"
+      v-for="(contact, idx) in contacts"
+      :key="idx"
+      @click="selectContact(contact)"
+    >
       <div class="dp">
         <img :src="contact.dp" />
       </div>
@@ -10,192 +15,23 @@
   </div>
 </template>
 <script>
+import { mapState, mapMutations } from "vuex";
+
 export default {
   data() {
-    return {
-      contacts: [
-        {
-          name: "Mukesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Harish",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Vignesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "SriRam",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Sujitha",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar2.png",
-        },
-        {
-          name: "Vaibhav",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Mukesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Harish",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Vignesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "SriRam",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Sujitha",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar2.png",
-        },
-        {
-          name: "Vaibhav",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Mukesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Harish",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Vignesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "SriRam",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Sujitha",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar2.png",
-        },
-        {
-          name: "Vaibhav",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Mukesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Harish",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Vignesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "SriRam",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Sujitha",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar2.png",
-        },
-        {
-          name: "Vaibhav",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Mukesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Harish",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Vignesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "SriRam",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Sujitha",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar2.png",
-        },
-        {
-          name: "Vaibhav",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Mukesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Harish",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Vignesh",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "SriRam",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-        {
-          name: "Sujitha",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar2.png",
-        },
-        {
-          name: "Vaibhav",
-          lastText: "Hi da, How are you?",
-          dp: "https://www.w3schools.com/howto/img_avatar.png",
-        },
-      ],
-    };
+    return {};
+  },
+  methods: {
+    ...mapMutations(["setSelectedContact"]),
+
+    selectContact(contact) {
+      console.log(contact);
+      console.log("calling in contacts list");
+      this.setSelectedContact(contact);
+    },
+  },
+  computed: {
+    ...mapState(["contacts"]),
   },
 };
 </script>
