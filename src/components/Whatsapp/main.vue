@@ -33,6 +33,86 @@ export default {
     ContactList,
     Conversations,
   },
+  methods: {
+    array() {
+      let contacts = [
+        {
+          name: "Mukesh",
+          lastText: "Hi da, How are you?",
+          dp: "https://www.w3schools.com/howto/img_avatar.png",
+          count: 3,
+          add: true,
+        },
+        {
+          name: "Harish",
+          lastText: "Hi da, How are you?",
+          dp: "https://www.w3schools.com/howto/img_avatar.png",
+          count: 19,
+          add: false
+        },
+        {
+          name: "Vignesh",
+          lastText: "Hi da, How are you?",
+          dp: "https://www.w3schools.com/howto/img_avatar.png",
+          count: 6,
+          add: true,
+        },
+      ];
+
+      // Basic FOR Loop
+      // for (var i = 0; i < contacts.length; i++) {
+      //   console.log(i, contacts[i]);
+      // }
+
+      // console.log("============== For Each ==============");
+      // contacts.forEach((e) => {
+      //   console.log(e);
+      // });
+
+      // console.log("============= Map ===============");
+
+      // contacts.map((e) => {
+      //   if (e.name == "Mukesh") {
+      //     e.lastText = "123456";
+      //   }
+      //   return e;
+      // });
+
+      // console.log("============= Reduce ===============");
+      // const initialVal = 0;
+
+      // const result1 = contacts.reduce(function (acc, item) {
+      //   return (acc += item.count);
+      // }, initialVal);
+
+      // const names = []
+      // const result2 = contacts.reduce(function (acc, item) {
+      //    acc.push(item.name)
+      //    return acc
+      // }, names)
+
+      // const result3 = contacts.reduce(function (acc, item) {
+      //   if(!item.add) {
+      //     acc += item.count
+      //   }
+      //   return acc;
+      // }, 0);
+
+      // console.log(result3);
+
+      console.log("============= Sort ===============");
+            
+      contacts.sort((a, b) => {
+        if(a.count > b.count) return 1
+        return -1
+      })
+
+      console.log(contacts)
+    },
+  },
+  created() {
+    this.array();
+  },
 };
 </script>
 
